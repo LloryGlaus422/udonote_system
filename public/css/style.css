@@ -1,0 +1,129 @@
+body {
+  margin:0px; 
+  padding: 0px;
+ background-color: white;
+  /* background-color:#ffe6b3; */
+  }
+
+nav {
+  background-color: #34495e;
+  height: 80px;
+      position: fixed;
+      width: 100vw;
+      top: 0;
+      z-index: 999;
+}
+
+#logo {height: 80px; margin-left: 20px;}
+
+.wrapper {
+  padding: 50px 50px;
+  max-width: 1200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+      margin-top: 80px;
+}
+
+.right {float: right !important;}
+/* Image zoom on hover + Overlay colour */
+.parent {
+  width: 45%;
+  margin: 20px;
+  height: 300px;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.child {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+/* Several different images */
+.bg-one {background-image: url(https://image.shutterstock.com/image-vector/english-sticker-260nw-573659359.jpg);}
+.bg-two {background-image: url(https://cdn.clipart.email/68868d13f0844e9b713a82e957d858f8_vedic-maths-tricks-vedic-mathematics-multiplication-for-_475-335.jpeg);}
+.bg-three {background-image: url(https://clipartstation.com/wp-content/uploads/2017/11/filipino-subject-clipart-5.jpg);}
+.bg-four {background-image: url(https://staugustinepublications.com/public/products/dcaa9b8d7c8b78d54e940847cfc39673/images/mediums/22a5ad86e8a3b6d675fd202c59fa6de4d749c017.jpg);}
+.bg-five {background-image: url(http://diwalearningtown.com/storage/app/uploads/465/thumbnail/tle-for-lifelong-learning-TLE%20for%20lifelong%20learning.jpg);}
+.bg-six {background-image: url(https://i.pinimg.com/736x/09/46/38/0946383fd05658c68373a7b9fe1a5eb9.jpg);}
+
+
+a {
+  display: none;
+  font-size: 35px;
+  color: #ffffff !important;
+  font-family: sans-serif;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  cursor: pointer;
+  /*text-decoration: none;*/
+}
+
+.parent:hover .child, .parent:focus .child {
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  
+}
+
+.parent:hover .child:before, .parent:focus .child:before {
+  display: block;
+}
+
+.parent:hover a, .parent:focus a {
+  display: block;
+}
+
+.child:before {
+  content: "";
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(52,73,94,0.75);
+}
+
+/* Media Queries */
+@media screen and (max-width: 960px) {
+  .parent {width: 100%; margin: 20px 0px}
+      .wrapper {padding: 20px 20px;}
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  float:right;
+}
+.subjects{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 28px;
+  font-color:
+}
