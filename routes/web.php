@@ -11,22 +11,40 @@
 |
 */
 
+// Route::get('/human', 'Human@human')->name('human');
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-// Route::get('/display','UserController@info');
+// Route::get('/welcome', 'UserController@welcome');
+// Route::resource('/user','UserController@store');
 
-// Route::get('/register', 'UserController@create');
+// Route::get('/login', 'UserController@Login');
+
+// Route::get('/register', 'UserController@Register');
+
 // Route::post('/register', 'UserController@store');
 
-// Route::get('/getInformation/{id}', 'UserController@edit');
-// Route::post('/editInformation/{id}', 'UserController@update');
-// Route::get('/deleteInformation/{id}', 'UserController@delete');
+Route::post('/insertData', 'Human@human2');
 
-Route::get('/subjects','SubjectsController@display');
-// Route::get('/add','SubjectsController@addSubject');
+Route::get('/showTable','Human@human');
 
-Route::get('users/index', array('uses' => 'SubjectsController@addSubject', 'as' => 'users.index'));
+Route::get('/showForm','Human@show');
+
+Route::get('/editForm/{id}','Human@edit');
+
+Route::post('/edit/{id}','Human@update');
+
+Route::get('/delete/{id}','Human@delete');
+
+Route::get('/login','Human@login1');
+
+Route::get('/logyow','Human@Log');
+
+Route::get('/main','Human@main');
 
 
+
+?>

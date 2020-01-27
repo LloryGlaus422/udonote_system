@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Data extends Migration
+class Human extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class Data extends Migration
      */
     public function up()
     {
-        Schema::create('Human', function (Blueprint $table) {
+        Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('last_name');
+            $table->string('firt_name');
+            $table->string('last_name')->unique();
             $table->string('email');
-            $table->int('age');
-            $table->int('gender');
+            $table->string('age');
+            $table->string('gender');
             $table->string('address');
-            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -35,6 +33,6 @@ class Data extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('people');
     }
 }

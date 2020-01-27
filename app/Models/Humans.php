@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Human extends Model
+class Humans extends Model
 {
     protected $fillable =[
         'first_name',
-        'middle_name',
         'last_name',
         'email',
         'age',
         'gender',
-        'address'
+        'address',
+        'password'    
     ];
     protected $hidden =[
         'password'
-    ];
+        ];  
 }

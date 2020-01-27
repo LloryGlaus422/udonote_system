@@ -2,72 +2,52 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-use App\Model\Info;
-use DB;
+use App\User;
+use Validator;
+use Auth;
 
 class UserController extends Controller
 {
-    public function info(Request $request){
-        $infos = Info::all();
-        return view('getInfo',compact('infos'));
-    }
-    public function create()
-    {
-        return view('insert');
+    public function welcome(){
+        return view('/welcome');
     }
 
-
-    public function store(Request $request)
-    {
-        $data = request(['first_name','middle_name','last_name' , 'email', 'age' ,'gender','address','password']);
-        $request->validate([
-            'first_name' => 'required',
-            'middle_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'age'  => 'required',
-            'gender' => 'required',
-            'address' => 'required',
-            'password' => 'required'
-        ]);
-        
-        $user = Info::create($data);
-        
-        // auth()->login($user);
-        
-        return redirect()->to('/display');
-        
+    public function Login(Request $request){
+        $users = User::whereEmail('email',$request->id)->get();
+        return view('/login',compact('users'));
     }
 
-    public function display(){
-            return view('getInfo');
+    public function login1(){
+        return view('/welcome');
     }
 
-    public function edit($id)
-        {
-        $infos = Info::find($id);
-        return view('edit',compact('infos'));
-    }
 
-    public function update(Request $request,$id) {
-        $first_name = $request->input('first_name');
-        $middle_name = $request->input('middle_name');
-        $last_name = $request->input('last_name');
-        $email = $request->input('email');
-        $age = $request->input('age');
-        $gender = $request->input('gender');
-        $address = $request->input('address');
-        $password = $request->input('password');
-
-        DB::update('update infos set first_name = ?,middle_name=?,last_name=?,email=?,age=?,gender=?,address=?,password=? where id = ?',[$first_name,$middle_name,$last_name,$email,$age,$gender,$address,$password,$id]);
-        echo "Record updated successfully.";
-        return redirect()->to('/display');
-            }
-
-    public function delete($id){
-        DB:: table('infos') ->where('id',$id)->delete();
-        return redirect()->to('/display');
+    public function users(Request $request){
+        $users = Users::all();
+        return view('homepage', compact('users'));
     }
     
+    public function Register(){
+        return view('register');
+    }
+    public function store(Request $request)
+    {
+        // $this->validate(request(), [
+        // 'name' => 'required',
+        // 'email' => 'required|email',
+        // 'password' => 'required',
+
+        $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required'
+        ]);
+        
+
+        $user = User::create(request(['name', 'email', 'password']));
+        // auth()->Login($user);
+        return redirect()->to('/login');
+    }
 }
