@@ -1,9 +1,11 @@
-@extends('sidebar')
-@section('content')
-@yield('sidebar')
+
+
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <div>
-    <button class="button">Add Subjects</button>
+    @include ('addSubject')
+    <button class="add">
+        Add Subject
+    </button>
 </div>
 <div class="wrapper">
     <div class="parent" onclick="">
@@ -42,4 +44,3 @@
         </div>
     </div>
 </div>
-@endsection

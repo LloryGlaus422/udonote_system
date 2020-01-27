@@ -25,4 +25,8 @@
 // Route::get('/deleteInformation/{id}', 'UserController@delete');
 
 Route::get('/subjects','SubjectsController@display');
+// Route::get('/add','SubjectsController@addSubject');
+
+Route::get('users/index', array('uses' => 'SubjectsController@addSubject', 'as' => 'users.index'));
+
 
